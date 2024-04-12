@@ -13,4 +13,18 @@
   width: 250px;
 }
 
+.start {
+  opacity: 0;
+  scale: 0;
+  height: 100px;
+}
+
+.end {
+  opacity: 1;
+  scale: 1;
+  transition: all 0.5s;
+  height: 100px;
+  background: #eee;
+}
+
 
