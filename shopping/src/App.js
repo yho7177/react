@@ -9,6 +9,7 @@ import { Routes, Route, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './page/detail';
 import About from './page/about';
 import axios from 'axios';
+import Cart from './page/Cart';
 
 function App() {
   let [shoes, setShoes] = useState(shoes_data);
@@ -71,6 +72,7 @@ function App() {
           <Route path="one" element={<div>첫 주문시 서비스</div>} />
           <Route path="two" element={<div>생일쿠폰</div>} />
         </Route>
+        <Route path="/cart" element={<Cart />} />
 
       </Routes>
 

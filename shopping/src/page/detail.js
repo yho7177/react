@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { getValue } from "@testing-library/user-event/dist/utils";
 import { Nav } from 'react-bootstrap';
+import {addBaguni} from './../store'
+import {useDispatch, useSelector} from 'react-redux'
 
 let YellowButton = styled.button`
     background : yellow;
@@ -66,7 +68,13 @@ function Detail(props) {
             }
         }, 100);
     })
+
+    let dispatch = useDispatch()
+    let useSt = useSelector((state) => state)
+    console.log(useSt.baguni)
+
     return <>
+    
         <div className={"container start " + fade}>
             {
                 hideSwitch === true
@@ -88,7 +96,9 @@ function Detail(props) {
                     <h4 className="pt-5">{shoesData.title}</h4>
                     <p>{shoesData.content}</p>
                     <p>{shoesData.price}</p>
-                    <button className="btn btn-danger">주문하기</button>
+                    <button className="btn btn-danger" onClick={() => {
+                        dispatch(addBaguni({shoesData}))
+                    }}>주문하기</button>
                 </div>
                 {/* <BlackBox bg = 'blue' width = '100px'>
                     <YellowButton>버튼</YellowButton>
